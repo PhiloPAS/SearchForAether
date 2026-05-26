@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aether Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#030608",
+            text: "#eff7f8",
+            muted: "#8ea2a8",
+            cyan: "#69e7ff"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="space-fade" aria-hidden="true"></div>
+  <div id="crosshair" aria-hidden="true"></div>
+
+  <main class="grid min-h-screen place-items-center px-5">
+    <section class="w-full max-w-3xl text-center">
+      <a class="aether-logo inline-block text-5xl font-extrabold tracking-tight sm:text-7xl" href="index.html">
+        Aether
+      </a>
+
+      <form id="home-search" class="search-shell mx-auto mt-9 flex h-16 max-w-2xl items-center rounded-xl px-5 transition duration-300 sm:h-20 sm:px-7" action="results.html" method="get" autocomplete="off">
+        <input
+          id="query"
+          name="q"
+          class="h-full w-full border-0 bg-transparent p-0 text-center text-lg font-medium text-text placeholder:text-muted/70 focus:ring-0 sm:text-2xl"
+          type="text"
+          placeholder="Search anything"
+          autofocus
+          required
+        />
+      </form>
+
+      <p class="mt-5 text-sm font-medium text-muted">Press Enter to search</p>
+    </section>
+  </main>
+
+  <script src="assets/js/stars.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

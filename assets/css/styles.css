@@ -1,0 +1,162 @@
+:root {
+  color-scheme: dark;
+  --ink: #030608;
+  --text: #eff7f8;
+  --muted: #8ea2a8;
+  --cyan: #69e7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  cursor: crosshair;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+button,
+a,
+input {
+  cursor: crosshair;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.space-fade {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 42%), rgba(105, 231, 255, .22), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(106, 116, 255, .14), transparent 24%),
+    radial-gradient(circle at 20% 78%, rgba(50, 180, 210, .10), transparent 26%),
+    linear-gradient(180deg, rgba(3, 6, 8, .10), rgba(3, 6, 8, .88));
+}
+
+#crosshair {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  opacity: .72;
+  transform: translate(-50%, -50%);
+}
+
+#crosshair::before,
+#crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(105, 231, 255, .78);
+  box-shadow: 0 0 12px rgba(105, 231, 255, .55);
+}
+
+#crosshair::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+#crosshair::after {
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+.aether-logo,
+.aether-logo-small {
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -.04em;
+  text-shadow: 0 0 28px rgba(105, 231, 255, .22);
+}
+
+.aether-logo {
+  position: relative;
+}
+
+.aether-logo::after {
+  content: "";
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  bottom: -.08em;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(105, 231, 255, .92), transparent);
+  opacity: .84;
+}
+
+.search-shell {
+  background: rgba(8, 14, 18, .64);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow:
+    0 0 0 1px rgba(105, 231, 255, .05),
+    0 24px 80px rgba(0, 0, 0, .42),
+    0 0 42px rgba(105, 231, 255, .12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.search-shell:focus-within {
+  border-color: rgba(105, 231, 255, .55);
+  box-shadow:
+    0 0 0 1px rgba(105, 231, 255, .18),
+    0 28px 90px rgba(0, 0, 0, .48),
+    0 0 54px rgba(105, 231, 255, .2);
+}
+
+.result-card {
+  background: rgba(8, 14, 18, .68);
+  border: 1px solid rgba(255, 255, 255, .10);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, .34);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.bar {
+  height: 7px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .09);
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--cyan);
+  transition: width .65s ease;
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  #crosshair {
+    display: none;
+  }
+}
